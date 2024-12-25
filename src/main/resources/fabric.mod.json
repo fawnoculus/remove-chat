@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "remove-chat",
+	"version": "${version}",
+	"name": "Remove Chat",
+	"description": "A simple mod that disables the Chat",
+	"authors": [
+		"fawnoculus"
+	],
+	"contact": {
+		"sources": "https://github.com/fawnoculus/remove-chat"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/remove-chat/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.fawnoculus.nochat.RemoveChat"
+		]
+	},
+	"mixins": [
+		"remove-chat.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": ">=1.19",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}

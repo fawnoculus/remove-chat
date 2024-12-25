@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.fawnoculus.nochat.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"RemoveChatMixin",
+		"RemoveMeCommandMixin",
+		"RemoveMessageCommandMixin",
+		"RemoveTeamMessageCommandMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
