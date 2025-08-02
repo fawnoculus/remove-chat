@@ -20,8 +20,6 @@ public class StringListOption extends Option<List<String>> {
   
   public boolean isEntryValid(String str) {
     return switch (this.ExtraType){
-      case ExtraType.BlockOption blockOption -> blockOption.isValid(str);
-      case ExtraType.ItemOption itemOption -> itemOption.isValid(str);
       case Option.ExtraType.AllowedValues item -> item.isValid(str);
       case Option.ExtraType.Generic ignored -> true;
       default -> false;

@@ -1,8 +1,6 @@
 package net.fawnoculus.nochat.util.config.options;
 
 import net.fawnoculus.nochat.util.config.ConfigFile;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -128,18 +126,6 @@ public abstract class Option<T> {
       }
       public boolean isValid(double value){
         return value > this.min && value < this.max;
-      }
-    }
-    record ItemOption() implements Option.ExtraType{
-      public boolean isValid(String string){
-        if(Registries.ITEM.getDefaultEntry().isEmpty()) throw new IllegalStateException("Registries.ITEM doesn't have a default value");
-        return Registries.ITEM.get(Identifier.of(string)) != Registries.ITEM.getDefaultEntry().get().value();
-      }
-    }
-    record BlockOption() implements Option.ExtraType{
-      public boolean isValid(String string){
-        if(Registries.BLOCK.getDefaultEntry().isEmpty()) throw new IllegalStateException("Registries.BLOCK doesn't have a default value");
-        return Registries.BLOCK.get(Identifier.of(string)) != Registries.BLOCK.getDefaultEntry().get().value();
       }
     }
     record AllowedValues(String... allowedValues) implements Option.ExtraType{

@@ -14,8 +14,6 @@ public class StringOption extends Option<String> {
   @Override
   boolean additionalValidation(String value) {
     return switch (this.ExtraType){
-      case ExtraType.BlockOption blockOption -> blockOption.isValid(value);
-      case ExtraType.ItemOption itemOption -> itemOption.isValid(value);
       case Option.ExtraType.AllowedValues item -> item.isValid(value);
       case Option.ExtraType.Generic ignored -> true;
       default -> false;

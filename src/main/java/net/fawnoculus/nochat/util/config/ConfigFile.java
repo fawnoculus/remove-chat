@@ -274,24 +274,6 @@ public class ConfigFile {
   public StringOption newStringOption(String name, String defaultValue, @Nullable String comment) {
     return newStringOption(name, defaultValue, comment, new Option.ExtraType.Generic());
   }
-  
-  /**
-   * @param name         Name of the Option
-   * @param defaultValue the Value that the Option will default to
-   * @param comment      Optional Comment (use "null" for no Comment)
-   */
-  public StringOption newItemOption(String name, String defaultValue, @Nullable String comment) {
-    return newStringOption(name, defaultValue, comment, new Option.ExtraType.ItemOption());
-  }
-  
-  /**
-   * @param name         Name of the Option
-   * @param defaultValue the Value that the Option will default to
-   * @param comment      Optional Comment (use "null" for no Comment)
-   */
-  public StringOption newBlockOption(String name, String defaultValue, @Nullable String comment) {
-    return newStringOption(name, defaultValue, comment, new Option.ExtraType.BlockOption());
-  }
   /**
    * @param name Name of the Option
    * @param defaultValue the Value that the Option will default to
@@ -312,21 +294,5 @@ public class ConfigFile {
    */
   public StringListOption newStringListOption(String name, List<String> defaultValue, @Nullable String comment) {
     return newStringListOption(name, defaultValue, comment, new Option.ExtraType.Generic());
-  }
-  /**
-   * @param name         Name of the Option
-   * @param defaultValue the Value that the Option will default to
-   * @param comment      Optional Comment (use "null" for no Comment)
-   */
-  public StringListOption newItemListOption(String name, List<String> defaultValue, @Nullable String comment) {
-    return newStringListOption(name, defaultValue, comment, new Option.ExtraType.ItemOption());
-  }
-  /**
-   * @param name         Name of the Option
-   * @param defaultValue the Value that the Option will default to
-   * @param comment      Optional Comment (use "null" for no Comment)
-   */
-  public StringListOption newBlockListOption(String name, List<String> defaultValue, @Nullable String comment) {
-    return newStringListOption(name, defaultValue, comment, new Option.ExtraType.BlockOption());
   }
 }
