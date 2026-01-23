@@ -1,11 +1,11 @@
 package net.fawnoculus.nochat;
 
 
-import net.fawnoculus.nochat.mixin.ServerPlayerEntityInvoker;
 import net.fawnoculus.nochat.util.config.ConfigFile;
 import net.fawnoculus.nochat.util.config.filetype.JsonConfigFile;
 import net.fawnoculus.nochat.util.config.options.BooleanOption;
 import net.fawnoculus.nochat.util.config.options.StringListOption;
+import net.minecraft.command.DefaultPermissions;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class RemoveChatConfig {
 	public static final BooleanOption LOG_STACKTRACE = CONFIG_FILE.newBooleanOption("log_stacktrace", false, "Whether to log Stacktrace on Exceptions ,only usefully for debugging");
 	
 	public static boolean playerNotExcluded(ServerPlayerEntity player){
-		if(EXCLUDE_OPS.getValue() && ((ServerPlayerEntityInvoker) player).REMOVE_CHAT$getPermissionLevel() >= 2){
+		if(EXCLUDE_OPS.getValue() && player.getPermissions().hasPermission(DefaultPermissions.MODERATORS)){
 			return false;
 		}
     return !EXCLUDED_PLAYERS.getValue().contains(player.getName().getLiteralString());

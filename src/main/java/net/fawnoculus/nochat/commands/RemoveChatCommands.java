@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fawnoculus.nochat.RemoveChatConfig;
 import net.fawnoculus.nochat.util.config.options.BooleanOption;
 import net.fawnoculus.nochat.util.config.options.Option;
+import net.minecraft.command.DefaultPermissions;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
@@ -22,7 +23,7 @@ public class RemoveChatCommands {
   public static void initialize() {
     CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
       dispatcher.register(CommandManager.literal("remove_chat")
-          .requires(source -> source.hasPermissionLevel(1))
+          .requires(source -> source.getPermissions().hasPermission(DefaultPermissions.MODERATORS))
           .then(CommandManager.literal("disable_chat")
               .executes(context -> getOptionInfo(context, RemoveChatConfig.DISABLE_CHAT))
               .then(CommandManager.argument("boolean", BoolArgumentType.bool())
